@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --body-color: rgb(9 9 11);
+  --text-color: rgb(244 244 245);
+  --progress-bg:  rgb(39 39 42);
+  --progress-text: rgb()
+}
+
+.light_mode {
+  --body-color: rgb(244 244 245);
+  --text-color: rgb(9 9 11);
+  --progress-bg:  rgb(9 9 11);
+}
+
+
+
+body {
+  @apply min-h-[100vh] bg-zinc-300;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  @apply flex flex-col min-h-full p-4 max-w-sm relative;
+  margin: 0 auto;
+}
+
+header {
+  @apply mb-4;
+}
+
+main {
+  @apply flex flex-col gap-4;
+}
+
+h1 {
+  @apply text-xl font-normal;
+  font-family: "Fugaz One", sans-serif;
+}
+
+h2, h3 {
+  font-weight: 600;
+}
+
+.progress {
+  @apply rounded-2xl p-4 flex justify-between mt-2 mb-4 items-center;
+  background-color: var(--progress-bg);
+}
+
+.progress > div > h3 {
+  @apply text-zinc-100;
+}
+
+#progress-bar {
+  @apply size-14 bg-zinc-500 rounded-full;
+}
+
+#percents {
+  @apply size-14 flex items-center justify-center rounded-full text-zinc-100;
+}
+
+#habits {
+  @apply flex flex-col gap-8 mb-28; 
+}
+
+.habit-days {
+  @apply grid mt-2 ;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  @apply size-10 rounded-full flex items-center justify-center border-2 font-semibold select-none;
+  border-color: var(--text-color);
+}
+
+.checked {
+  @apply font-extrabold !important;
+  background-color: var(--text-color) !important;
+  color: var(--body-color)
+
+}
+
+.todayDay {
+  @apply cursor-pointer border-dashed !important;
+}
+
+#goalsCompleted {
+  @apply text-end;
+  min-width: 28px;
+}
+
+#form {
+  @apply w-full h-[100vh] absolute left-0 top-0 items-center justify-center;
+}
+
+#wrapper {
+  @apply bg-zinc-700 bg-opacity-70 absolute left-0 top-0 min-w-full min-h-[100vh] z-[1];
+}
+
+
+.openForm {
+  @apply flex !important;
+}
+
+#habit-name {
+  @apply h-14 w-64 pl-4 pr-2 relative z-10 outline-none text-zinc-950;
+}
+
+#addNewHabit {
+  @apply bg-zinc-950 p-4 relative z-10 text-zinc-100;
+}
+
+footer {
+  @apply fixed bottom-0 h-20 border-t-2 bg-zinc-950 border-t-zinc-800 w-96 flex items-center self-center;
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+footer > nav {
+ @apply w-full flex justify-evenly;
+}
+
+.nav-btn {
+  @apply flex items-center justify-center size-16 text-2xl !important;
+}
+
+.theme {
+  @apply flex justify-between items-center pt-4 pb-6;
+}
+
+.settings-header {
+  @apply text-lg;
+}
+
+#habitsContainer {
+  @apply mt-2 flex flex-col gap-4 mb-28;
+}
+
+#habitsContainer > li { 
+  @apply flex justify-between items-center;
+}
+
+.deleteHabit {
+  @apply text-red-500 size-10 w-16 hover:underline;
+}
+
+#themeToggle {
+  @apply size-8 text-2xl;
+}
+
+.habit-info {
+  @apply flex gap-4 items-center;
+}
+
+.habit-progress {
+  @apply font-semibold text-green-500 text-nowrap;
+}
+
+.removeForm {
+  @apply flex flex-col relative z-10 justify-center text-center gap-4;
+}
+
+.removeFormBtnsWrapper {
+  @apply flex gap-6;
+}
+
+.removeFormBtnsWrapper button {
+  @apply w-20 py-3 flex justify-center items-center;
+}
+
+.removeFormBtnsWrapper button:last-child{
+  @apply bg-red-500/80;
+}
+.removeFormBtnsWrapper button:first-child {
+  @apply bg-green-500/80;
+}
+
+.habit-name {
+  @apply min-w-36 text-xs;
+}
+
+.errorContainer {
+  @apply bg-red-500 p-4 rounded-lg absolute rounded-es-none z-20;
+  width: calc(100% - 2rem);
+}
+
+.errorText {
+  @apply text-lg;
+}
+
+.sliderRight {
+  content: '';
+  @apply absolute w-full left-0 bottom-0 h-1 bg-white rounded-e-xl;
+}
+
+.animSlideRight {
+  animation-duration: 5s;
+  animation-name: slideRight;
+}
+
+@keyframes slideRight {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animSlideTop {
+  transform: translateY(-150%);
+  animation-duration: .5s;
+  animation-name: slideTop;
+}
+
+@keyframes slideTop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150%);
+  }
+}
+
+.animSlideDown {
+  transform: translateY(0);
+  animation-duration: .5s;
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-150%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
