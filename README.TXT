@@ -4,4 +4,4 @@ Habit tracker by NikitaBenzin
 
 HTML | Tailwind | Vanilla JS | Node js
 
-
+Site preview: assets/img
